@@ -10,6 +10,10 @@ typedef struct block_meta {
     struct block_meta *next;
 } block_meta;
 
+void yfree(void *ptr);
+void basic_allocation(char *argv);
+void *yalloc(size_t size);
+
 #define META_SIZE sizeof(block_meta)
 
 #endif

@@ -1,0 +1,161 @@
+==19539== Memcheck, a memory error detector
+==19539== Copyright (C) 2002-2026, and GNU GPL'd, by Julian Seward et al.
+==19539== Using Valgrind-3.28.0.GIT-lbmacos and LibVEX; rerun with -h for copyright info
+==19539== Command: ./bin/app tests testing_text
+==19539== 
+==19539== 
+==19539== HEAP SUMMARY:
+==19539==     in use at exit: 14,821 bytes in 186 blocks
+==19539==   total heap usage: 200 allocs, 14 frees, 15,872 bytes allocated
+==19539== 
+==19539== 32 bytes in 1 blocks are definitely lost in loss record 10 of 40
+==19539==    at 0x1009C43EC: malloc_type_zone_malloc_with_options (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x1009C4493: malloc_type_zone_malloc_with_options (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0BF4A3: cache_t::insert(objc_selector*, void (*)(), objc_object*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A60AB: lookUpImpOrForward (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A5B83: _objc_msgSend_uncached (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B1D2143: -[OS_xpc_object dealloc] (in /usr/lib/system/libxpc.dylib)
+==19539==    by 0x18B1D041F: _xpc_collect_images (in /usr/lib/system/libxpc.dylib)
+==19539==    by 0x18B1CF8A3: _libxpc_initializer (in /usr/lib/system/libxpc.dylib)
+==19539==    by 0x19B32335B: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+==19539==    by 0x1008AF733: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+==19539==    by 0x1008BFE8F: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+==19539==    by 0x1008F655F: invocation function for block in mach_o::UnsafeHeader::forEachSection(void ( block_pointer)(mach_o::UnsafeHeader::SectionInfo const&, bool&)) const (in /usr/lib/dyld)
+==19539== 
+==19539== 48 bytes in 1 blocks are possibly lost in loss record 14 of 40
+==19539==    at 0x1009BD31C: malloc_type_malloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0BEA3F: allocBuckets(unsigned int) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0BB4B7: NXCreateMapTable (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09EE9F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B34577B: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==19539== 
+==19539== 48 bytes in 1 blocks are possibly lost in loss record 15 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0CAF23: class_rw_t::extAlloc(class_ro_t const*, bool) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A2103: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539== 
+==19539== 64 bytes in 2 blocks are definitely lost in loss record 23 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539== 
+==19539== 64 bytes in 2 blocks are definitely lost in loss record 24 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A184B: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539== 
+==19539== 160 bytes in 5 blocks are definitely lost in loss record 29 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B34577B: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==19539== 
+==19539== 160 bytes in 5 blocks are definitely lost in loss record 30 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A184B: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A1833: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539== 
+==19539== 528 bytes in 1 blocks are possibly lost in loss record 34 of 40
+==19539==    at 0x1009BD31C: malloc_type_malloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0BEA3F: allocBuckets(unsigned int) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0BB4B7: NXCreateMapTable (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A0E43: protocols() (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09F413: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539== 
+==19539== 1,952 bytes in 61 blocks are definitely lost in loss record 38 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B34577B: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==19539==    by 0x18B37AE83: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==19539== 
+==19539== 1,952 bytes in 61 blocks are definitely lost in loss record 39 of 40
+==19539==    at 0x1009C2870: malloc_type_calloc (in /opt/homebrew/Cellar/valgrind/HEAD-803ec83/libexec/valgrind/vgpreload_memcheck-arm64-darwin.so)
+==19539==    by 0x18B0A16AB: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B0A184B: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09FD67: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B09DD8F: map_images (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x10089ED43: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>)::$_0::operator()() const (in /usr/lib/dyld)
+==19539==    by 0x1008919E7: dyld4::RuntimeLocks::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+==19539==    by 0x100899ED7: dyld4::RuntimeState::setObjCNotifiers(dyld4::ReadOnlyCallback<void (*)(char const*, mach_header const*)>, dyld4::ReadOnlyCallback<void (*)(mach_header const*, void*, mach_header const*, void const*)>, dyld4::ReadOnlyCallback<void (*)(_dyld_objc_notify_mapped_info const*)>, dyld4::ReadOnlyCallback<void (*)(unsigned int, _dyld_objc_notify_mapped_info const*, void ( block_pointer)(unsigned int))>) (in /usr/lib/dyld)
+==19539==    by 0x100871F1F: dyld4::APIs::_dyld_objc_register_callbacks(dyld4::ObjCCallbacks const*) (in /usr/lib/dyld)
+==19539==    by 0x18B0FA713: _dyld_objc_register_callbacks (in /usr/lib/system/libdyld.dylib)
+==19539==    by 0x18B09DB0F: _objc_init (in /usr/lib/libobjc.A.dylib)
+==19539==    by 0x18B34577B: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==19539== 
+==19539== LEAK SUMMARY:
+==19539==    definitely lost: 4,384 bytes in 137 blocks
+==19539==    indirectly lost: 0 bytes in 0 blocks
+==19539==      possibly lost: 624 bytes in 3 blocks
+==19539==    still reachable: 9,813 bytes in 46 blocks
+==19539==         suppressed: 0 bytes in 0 blocks
+==19539== Reachable blocks (those to which a pointer was found) are not shown.
+==19539== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==19539== 
+==19539== For lists of detected and suppressed errors, rerun with: -s
+==19539== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
