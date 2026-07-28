@@ -45,7 +45,7 @@ void *yalloc(size_t size) {
         block_meta *last = global_base;
         block = find_empty_block(&last, size);
         if (!block) {
-            request_space(last, size);
+            block = request_space(last, size);
             if (!block) return NULL;
         }
         else {
