@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) 
 {
     if (argc < 3) {
-        fprintf(stderr, "3 argüman giriniz\n");
+        fprintf(stderr, "Please provide 3 arguments!\n");
         return 1;
     }
 
