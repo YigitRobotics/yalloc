@@ -8,7 +8,7 @@ I've been planning to build a memory allocator for a long time, and this project
 The allocator is intentionally minimal in scope and currently focuses on core allocation functionality. Most security-related protections have not yet been implemented, although the allocator is already usable in its current state.
 
 Planned improvements include:
-- Thread-safety mechanisms (mutexes, spinlocks, etc.)
+- Thread-safety mechanisms (mutexes, spinlocks, etc.) [DONE ✅]
 - Race condition prevention
 - Additional security hardening
 - Performance optimizations
@@ -39,7 +39,6 @@ Currently, the allocator does not implement:
 - Block splitting
 - Block coalescing
 - Arena-based allocation
-- Thread safety
 - Advanced fragmentation mitigation
 
 As a result, memory fragmentation can become significant during long-running workloads.
