@@ -1,6 +1,9 @@
 #include "../include/yalloc.h"
+#include <pthread.h>
 
 void *global_base = NULL;
+
+pthread_mutex_t alloc_lock = PTHREAD_MUTEX_INITIALIZER;
 
 block_meta *find_empty_block(block_meta **last, size_t size) {
     block_meta *current = global_base;
@@ -33,20 +36,29 @@ block_meta *request_space(block_meta *last, size_t size) {
 }
 
 void *yalloc(size_t size) {
+    pthread_mutex_lock(&alloc_lock);
     block_meta *block;
-    if (size <= 0) return NULL;
+    if (size <= 0) {
+        pthread_mutex_unlock(&alloc_lock);
+        return NULL;
+    }
 
     if (!global_base) {
         block = request_space(NULL, size);
-        if (!block) return NULL;
+        if (!block) {
+            pthread_mutex_unlock(&alloc_lock);
+            return NULL;
+        }
         global_base = block;
-    }
-    else {
+    } else {
         block_meta *last = global_base;
         block = find_empty_block(&last, size);
         if (!block) {
-            request_space(last, size);
-            if (!block) return NULL;
+            block = request_space(last, size);
+            if (!block) {
+                pthread_mutex_unlock(&alloc_lock);
+                return NULL;
+            }
         }
         else {
             block->is_free = 0;
@@ -54,5 +66,6 @@ void *yalloc(size_t size) {
         
     }
 
+    pthread_mutex_unlock(&alloc_lock);
     return (block + 1);
 }
